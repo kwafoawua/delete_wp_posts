@@ -1,11 +1,10 @@
-El código sirve para eliminar los posts utilizando la [API V2 eliminar inmuebles](https://drive.google.com/open?id=0B-LidNqwJHSPUXBUaGJVYU9DVFU)
 
 ######Pasos
 `npm install`
 `npm start`
 
-Se necesita tener una lista de Ids en formato csv separada por \n, en todo caso que sea diferente modificar el código. El csv debe etar en el mismo path.
-También se puede modificar la url.
+Se necesita tener una lista de Ids en formato csv separada por \n, en todo caso que sea diferente modificar el cÃ³digo. El csv debe etar en el mismo path.
+TambiÃ©n se puede modificar la url.
 
 Logs.
 Para ver los logs.
