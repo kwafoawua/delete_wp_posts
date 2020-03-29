@@ -6,10 +6,9 @@ const app = express();
 /*Variabls globales*/
 let listaID;
 const user_id = 48;
-//http://35.190.157.14:80 maquina del cron, reemplazar para produccion
-const url = 'https://clasificadosc3test.simtlix.com/wp-json/v2/delete_immovables_post';
-const token = '367DC7EAA712BD91514ECA2D49A1A';
-const external_uidunico = 'fa5d92be192445239e3abdf8c75c802a'; //34144
+const url = 'http://35.190.157.14:80/wp-json/v2/delete_immovables_post';
+const token = '367DC7EAA';
+const external_uidunico = 'fa5d92b'; //34144
 
 
 app.get('/', (req, res) => {res.send('Delete Posts Script!')});
