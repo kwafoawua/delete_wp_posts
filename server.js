@@ -5,10 +5,10 @@ const app = express();
 
 /*Variabls globales*/
 let listaID;
-const user_id = 48;
-const url = 'http://35.190.157.14:80/wp-json/v2/delete_immovables_post';
-const token = '367DC7EAA';
-const external_uidunico = 'fa5d92b'; //34144
+const user_id = process.env.USER_ID;
+const url = 'http://localhost:80/wp-json/v2/delete_immovables_post';
+const token = process.env.TOKEN;
+const external_uidunico = process.env.EXTERNAL_UIDUNICO; //
 
 
 app.get('/', (req, res) => {res.send('Delete Posts Script!')});
