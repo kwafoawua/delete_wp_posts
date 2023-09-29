@@ -6,14 +6,15 @@ const app = express();
 /*Variabls globales*/
 let listaID;
 const user_id = process.env.USER_ID;
+const port = process.env.PORT || 3000;
 const url = 'http://localhost:80/wp-json/v2/delete_immovables_post';
 const token = process.env.TOKEN;
-const external_uidunico = process.env.EXTERNAL_UIDUNICO; //
+const external_uid = process.env.EXTERNAL_UID;
 
 
 app.get('/', (req, res) => {res.send('Delete Posts Script!')});
 
-app.listen(5000, () => {console.log('Example app listening on port 3000!')});
+app.listen(port, () => {console.log(`Example app listening on port ${port}!`)});
 
 
 fs.readFile(`${__dirname}/listadeidcustomsAA3.csv`, 'utf8', (err, data) => {
@@ -21,12 +22,11 @@ fs.readFile(`${__dirname}/listadeidcustomsAA3.csv`, 'utf8', (err, data) => {
     return console.log(err);
   }
   listaID = data.split('\n');
-  console.log('Lee la lista');
   eliminarPosts(listaID);
 });
 
 function borrarUno(id) {
-  	const apidelete = `${url}?token=${token}&external_uidunico=${external_uidunico}&user_id=${user_id}&post_id=${id}`;
+	const apidelete = `${url}?token=${token}&external_uidunico=${external_uid}&user_id=${user_id}&post_id=${id}`;
 
 	return new Promise(function(resolve, reject) {
     request({uri: apidelete, method: 'DELETE', time: true}, (error, response, body) => {
@@ -42,7 +42,7 @@ async function eliminarPosts(listaID) {
 	  for (let customID of listaID) {
 	  	try {
 	  		const listing = await borrarUno(customID);
-	  		console.log('Eliminado Nro: '+ count+' '+listing);
+	  		console.log(`Eliminado Nro: ${count} ${listing}`);
         count++;
 	  	}catch(error) {
 	  		console.error(error);
